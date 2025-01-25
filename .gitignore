@@ -1,0 +1,22 @@
+#Byte Compiled files
+*.pyc
+*.pyo
+__pycache__/
+
+
+
+# Virtual environment directories
+venv/
+env/
+
+# IDE configuration
+.vscode
+.idea
+
+# Python package directories
+*.egg-info/
+dist/
+build/
+
+# Logs
+*.log
