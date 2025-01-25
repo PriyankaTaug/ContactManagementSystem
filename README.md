@@ -16,5 +16,9 @@ Install requirements.txt : pip install -r requirements.txt
 
 ## Api
 
-creating contacts :curl http://127.0.0.1:5000/add_contact
-view contacts :curl http://127.0.0.1:5000/view_contact
+creating contacts :
+```bash
+curl http://127.0.0.1:5000/add_contact
+view contacts :
+```bash
+curl http://127.0.0.1:5000/view_contact
