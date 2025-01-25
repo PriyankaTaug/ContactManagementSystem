@@ -1,14 +1,14 @@
 name: Flask CI Pipeline
 
 on:
-  push:
-    branches:
-      - main
-      - Readmeadd
+  # push:
+  #   branches:
+  #     - main
+  #     - Readmeadd
   pull_request:
     branches:
       - main
-      - Readmeadd
+      - dev
 
 jobs:
   test:
