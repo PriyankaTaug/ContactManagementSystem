@@ -43,6 +43,6 @@ jobs:
         env:
           USERNAME: ${{ secrets.PYTHONANYWHERE_USERNAME }}
           API_TOKEN: ${{ secrets.PYTHONANYWHERE_API_TOKEN }}
-          DOMAIN: "yourdomain.pythonanywhere.com"  # Replace with your actual PythonAnywhere domain
+          DOMAIN: "Priya100898.pythonanywhere.com"  # Replace with your actual PythonAnywhere domain
         run: |
           curl -X POST -H "Authorization: Token $API_TOKEN" https://www.pythonanywhere.com/api/v0/user/priya100898/webapps/Priya100898.pythonanywhere.com/reload/

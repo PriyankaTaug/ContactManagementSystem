@@ -8,7 +8,7 @@ def client():
 
 def test_add_contact(client):
     response = client.post('/add_contact', json={
-        'name': 'John Doe',
+        'name': 'Sona',
         'phone': '1234567890',
         'email': 'sona@example.com'
     })
