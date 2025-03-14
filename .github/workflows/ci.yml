@@ -1,9 +1,9 @@
 name: Flask CI/CD Pipeline
 
 on:
-  # push:
-  #   branches:
-  #     - main
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -43,6 +43,14 @@ jobs:
         env:
           USERNAME: ${{ secrets.PYTHONANYWHERE_USERNAME }}
           API_TOKEN: ${{ secrets.PYTHONANYWHERE_API_TOKEN }}
-          DOMAIN: "Priya100898.pythonanywhere.com"  # Replace with your actual PythonAnywhere domain
+          DOMAIN: "Priya100898.pythonanywhere.com"  # Your PythonAnywhere app domain
         run: |
-          curl -X POST -H "Authorization: Token $API_TOKEN" https://www.pythonanywhere.com/api/v0/user/priya100898/webapps/Priya100898.pythonanywhere.com/reload/
+          echo "Deploying to PythonAnywhere..."
+          echo "Username: $USERNAME"
+          echo "Domain: $DOMAIN"
+
+          # Trigger PythonAnywhere deployment
+          curl -X POST -H "Authorization: Token $API_TOKEN" \
+            https://www.pythonanywhere.com/api/v0/user/$USERNAME/webapps/$DOMAIN/reload/
+
+          echo "Deployment trigger sent!"
