@@ -10,7 +10,7 @@ def test_add_contact(client):
     response = client.post('/add_contact', json={
         'name': 'John Doe',
         'phone': '1234567890',
-        'email': 'john@example.com'
+        'email': 'sona@example.com'
     })
     assert response.status_code == 201
     assert b'Successfully added' in response.data
