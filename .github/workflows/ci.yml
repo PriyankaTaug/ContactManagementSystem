@@ -1,10 +1,9 @@
-name: Flask CI Pipeline
+name: Flask CI/CD Pipeline
 
 on:
   # push:
   #   branches:
   #     - main
-  #     - Readmeadd
   pull_request:
     branches:
       - main
@@ -31,3 +30,19 @@ jobs:
       - name: Run tests
         run: |
           pytest  # Assuming you have test files using pytest
+
+  deploy:
+    needs: test  # Deployment runs only if 'test' job passes
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Deploy to PythonAnywhere
+        env:
+          USERNAME: ${{ secrets.PYTHONANYWHERE_USERNAME }}
+          API_TOKEN: ${{ secrets.PYTHONANYWHERE_API_TOKEN }}
+          DOMAIN: "yourdomain.pythonanywhere.com"  # Replace with your actual PythonAnywhere domain
+        run: |
+          curl -X POST -H "Authorization: Token $API_TOKEN" https://www.pythonanywhere.com/api/v0/user/priya100898/webapps/Priya100898.pythonanywhere.com/reload/
